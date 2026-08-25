@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ibrahim Safi — Embedded Systems & AI Engineer</title>
+<meta name="description" content="Portfolio of Ibrahim Sohil Sady Safi, Embedded Systems Engineer and AI & Computer Vision specialist (NVIDIA certified). Firmware, circuits, PLC automation and deep learning.">
+<style>
+:root{
+  --navy:#14324F; --teal:#2A9D8F; --teal-dark:#0E7C86;
+  --bg:#f6f8fb; --card:#ffffff; --text:#1f2733; --muted:#5c6b7a;
+  --line:#e2e8f0; --shadow:0 10px 30px rgba(20,50,79,.08);
+  --header:rgba(246,248,251,.82);
+}
+html[data-theme="dark"]{
+  --bg:#0d141d; --card:#141f2d; --text:#e6edf5; --muted:#9db0c0;
+  --line:#22334a; --shadow:0 10px 30px rgba(0,0,0,.35);
+  --header:rgba(13,20,29,.82);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Segoe UI','Helvetica Neue',Arial,'Tahoma',sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.65;
+  transition:background .3s,color .3s;overflow-x:hidden;
+}
+html[dir="rtl"] body{font-family:'Tahoma','Segoe UI',Arial,sans-serif}
+.container{max-width:1080px;margin:0 auto;padding:0 22px}
+a{color:var(--teal-dark);text-decoration:none}
+html[data-theme="dark"] a{color:#63c7c0}
+
+/* ---------- Header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--header);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.05rem;color:var(--text);letter-spacing:.3px}
+.logo span{color:var(--teal)}
+@media(max-width:480px){.logo{font-size:.88rem}}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{color:var(--muted);font-size:.9rem;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-tools{display:flex;gap:10px;align-items:center}
+.btn-icon{cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--text);
+  width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:700;transition:.2s}
+.btn-icon:hover{border-color:var(--teal);color:var(--teal)}
+#langBtn{width:auto;padding:0 14px;font-size:.85rem}
+.burger{display:none}
+@media(max-width:820px){
+  .nav-links{position:fixed;top:64px;right:0;left:0;background:var(--card);flex-direction:column;
+    gap:0;padding:10px 0;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .nav-links li{padding:10px 24px}
+  .burger{display:flex}
+}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:64px;
+  background:
+   radial-gradient(600px 300px at 85% 15%, rgba(42,157,143,.14), transparent 60%),
+   radial-gradient(500px 260px at 10% 85%, rgba(20,50,79,.10), transparent 60%);
+}
+.hero-inner{display:flex;align-items:center;gap:46px;flex-wrap:wrap;padding:40px 0}
+.hero-text{flex:1 1 460px}
+.badge{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--muted);font-size:.8rem;font-weight:600;margin-bottom:18px}
+.badge .dot{color:var(--teal)}
+.greeting{font-size:1.1rem;font-weight:800;color:var(--teal-dark);margin-bottom:12px}
+html[data-theme="dark"] .greeting{color:#63c7c0}
+.hero h1{font-size:2.7rem;line-height:1.15;color:var(--text);letter-spacing:.5px}
+.hero h1 .hl{color:var(--teal)}
+.hero .role{margin:14px 0 6px;font-size:1.15rem;font-weight:700;color:var(--teal-dark)}
+html[data-theme="dark"] .hero .role{color:#63c7c0}
+.hero p.lead{color:var(--muted);max-width:560px;margin:8px 0 26px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;
+  font-weight:700;font-size:.92rem;cursor:pointer;border:1px solid transparent;transition:.2s}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 8px 20px rgba(42,157,143,.35)}
+.btn-primary:hover{background:#23857a;transform:translateY(-2px)}
+.btn-ghost{background:var(--card);color:var(--text);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.stats{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
+.stat b{display:block;font-size:1.3rem;color:var(--teal)}
+.stat span{font-size:.8rem;color:var(--muted)}
+.hero-visual{flex:0 1 320px;display:flex;justify-content:center}
+.monogram{width:250px;height:250px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;border:4px solid var(--teal);
+  box-shadow:0 24px 50px rgba(20,50,79,.35), 0 0 0 10px rgba(42,157,143,.12)}
+.monogram img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+@media(max-width:820px){.hero-visual{order:-1}.monogram{width:170px;height:170px}}
+
+/* ---------- Sections ---------- */
+section{padding:78px 0}
+.sec-label{color:var(--teal);font-weight:800;font-size:.78rem;letter-spacing:3px;text-transform:uppercase}
+.sec-title{font-size:1.9rem;margin:6px 0 26px;color:var(--text)}
+html[dir="rtl"] .sec-label{letter-spacing:1px}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:start}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.card h3{font-size:1.05rem;margin-bottom:10px;color:var(--text)}
+.card p,.card li{color:var(--muted);font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:999px;
+  background:rgba(42,157,143,.12);color:var(--teal-dark);border:1px solid rgba(42,157,143,.3)}
+html[data-theme="dark"] .chip{color:#7fd1c8}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.skill-card svg{margin-bottom:4px}
+.skill-card ul{list-style:none;margin-top:6px}
+.skill-card li{padding-inline-start:20px;position:relative;margin-bottom:6px}
+.skill-card li:before{content:"▸";color:var(--teal);position:absolute;inset-inline-start:0}
+
+.featured{display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;border-radius:18px;
+  border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:22px}
+@media(max-width:820px){.featured{grid-template-columns:1fr}}
+.featured .f-visual{background:linear-gradient(150deg,var(--navy),#0c2036);color:#dfe9f2;padding:36px;
+  display:flex;flex-direction:column;justify-content:center}
+.f-visual .tag{color:#7fd1c8;font-size:.75rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.f-visual h3{color:#fff;font-size:1.45rem;line-height:1.3;margin:10px 0 12px}
+.f-visual p{color:#b9cbda;font-size:.92rem}
+.f-wave{margin-top:20px}
+.featured .f-body{background:var(--card);padding:36px}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.proj-card{transition:.25s}
+.proj-card:hover{transform:translateY(-5px);border-color:var(--teal)}
+.proj-date{font-size:.75rem;font-weight:800;color:var(--teal);letter-spacing:1px}
+
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.serv-card{transition:.25s}
+.serv-card:hover{transform:translateY(-5px);border-color:var(--teal)}
+.serv-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:rgba(42,157,143,.12);margin-bottom:12px}
+
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.edu-grid{grid-template-columns:1fr}}
+.edu-item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.edu-item:last-child{border-bottom:none}
+.edu-item b{color:var(--text);font-size:.95rem;display:block}
+.edu-item small{color:var(--muted)}
+.edu-item .yr{color:var(--teal);font-weight:800;font-size:.85rem;white-space:nowrap}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:10px}
+.contact-item{display:flex;align-items:center;gap:14px}
+.contact-item .ic{width:46px;height:46px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,var(--navy),#0d2238);color:#7fd1c8}
+.contact-item b{display:block;font-size:.85rem;color:var(--text)}
+.contact-item span{font-size:.83rem;color:var(--muted);word-break:break-all}
+.contact-cta{margin-top:34px;text-align:center}
+
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top" data-en="Engineer Ibrahim <span>Safi</span>" data-ar="المهندس إبراهيم <span>صافي</span>">Engineer Ibrahim <span>Safi</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-en="About" data-ar="نبذة">About</a></li>
+      <li><a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a></li>
+      <li><a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+      <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+      <li><a href="#education" data-en="Education" data-ar="التعليم">Education</a></li>
+      <li><a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="btn-icon" id="langBtn" title="Switch language">عربي</button>
+      <button class="btn-icon" id="themeBtn" title="Toggle theme">
+        <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="btn-icon burger" id="burger" title="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="badge"><span class="dot">●</span> <span data-en="Ouargla, Algeria — Open to freelance projects worldwide" data-ar="ورقلة، الجزائر — متاح لمشاريع العمل الحر حول العالم">Ouargla, Algeria — Open to freelance projects worldwide</span></div>
+      <div class="greeting" data-en="Welcome to Ibrahim Safi's website 👋 Glad to have you here!" data-ar="مرحبا في موقع ابراهيم صافي يسرني وجودكم هنا 👋">Welcome to Ibrahim Safi's website 👋 Glad to have you here!</div>
+      <h1 data-en="Ibrahim Sohil Sady <span class='hl'>Safi</span>" data-ar="إبراهيم سهيل <span class='hl'>صافي</span>">Ibrahim Sohil Sady <span class="hl">Safi</span></h1>
+      <div class="role" data-en="Embedded Systems Engineer | AI & Computer Vision Specialist" data-ar="مهندس أنظمة مدمجة | مختص ذكاء اصطناعي ورؤية حاسوبية">Embedded Systems Engineer | AI &amp; Computer Vision Specialist</div>
+      <p class="lead" data-en="I turn ideas into intelligent hardware: clean firmware in C, C++ and Python, robust electronic circuits, PLC industrial automation, and NVIDIA-certified deep-learning vision systems — delivered tested, documented and on time." data-ar="أحوّل الأفكار إلى عتاد ذكي: برمجيات مدمجة نظيفة بلغات C وC++ وبايثون، دوائر إلكترونية متينة، أتمتة صناعية بالمتحكمات المنطقية، وأنظمة رؤية بالتعلم العميق معتمدة من NVIDIA — مسلَّمة مختبَرة وموثَّقة وفي الوقت المحدد.">I turn ideas into intelligent hardware: clean firmware in C, C++ and Python, robust electronic circuits, PLC industrial automation, and NVIDIA-certified deep-learning vision systems — delivered tested, documented and on time.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#projects"><span data-en="View My Work" data-ar="استعرض أعمالي">View My Work</span></a>
+        <a class="btn btn-ghost" href="#contact"><span data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</span></a>
+        <a class="btn btn-ghost" href="CV-Ibrahim-Safi.pdf" target="_blank"><span data-en="Download CV (EN)" data-ar="تحميل السيرة (إنجليزي)">Download CV (EN)</span></a>
+        <a class="btn btn-ghost" href="CV-Ibrahim-Safi-FR.pdf" target="_blank"><span data-en="Télécharger CV (FR)" data-ar="تحميل السيرة (فرنسي)">Télécharger CV (FR)</span></a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>M.Sc.</b><span data-en="Embedded Systems" data-ar="أنظمة مدمجة">Embedded Systems</span></div>
+        <div class="stat"><b>NVIDIA</b><span data-en="Certified in AI Vision" data-ar="معتمد في الرؤية الاصطناعية">Certified in AI Vision</span></div>
+        <div class="stat"><b data-en="3" data-ar="٣">3</b><span data-en="Languages: EN · FR · AR" data-ar="لغات: إنجليزية · فرنسية · عربية">Languages: EN · FR · AR</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="monogram"><img src="profile.jpg" alt="Ibrahim Sohil Sady Safi — Embedded Systems Engineer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="container">
+    <div class="sec-label reveal" data-en="Who I Am" data-ar="من أنا">Who I Am</div>
+    <h2 class="sec-title reveal" data-en="About Me" data-ar="نبذة عني">About Me</h2>
+    <div class="about-grid">
+      <div class="card reveal">
+        <p data-en="I am an Embedded Systems Engineer with a Master's degree in Electronics. My strength is a rare combination: low-level programming (C, C++, Assembly) and modern AI — a duality that lets me build hardware that doesn't just work, but sees, decides and connects." data-ar="أنا مهندس أنظمة مدمجة حاصل على ماجستير في الإلكترونيك. قوتي في تركيب نادر: البرمجة منخفضة المستوى (C وC++ وأسمبلي) والذكاء الاصطناعي الحديث — وهو ما يمكّنني من بناء عتاد لا يعمل فحسب، بل يرى ويقرر ويتصل.">I am an Embedded Systems Engineer with a Master's degree in Electronics. My strength is a rare combination: low-level programming (C, C++, Assembly) and modern AI — a duality that lets me build hardware that doesn't just work, but sees, decides and connects.</p>
+        <br>
+        <p data-en="From microcontrollers and PLC automation to deep learning, I handle the full chain: design, build, troubleshoot and document. I work rigorously under pressure, communicate clearly in English, French and Arabic, and treat every project — big or small — as if it carries my name. Because it does." data-ar="من المتحكمات الدقيقة وأتمتة PLC إلى التعلم العميق، أدير السلسلة كاملة: تصميم، تنفيذ، إصلاح وتوثيق. أعمل بصرامة تحت الضغط، وأتواصل بوضوح بالإنجليزية والفرنسية والعربية، وأتعامل مع كل مشروع — صغيراً كان أم كبيراً — وكأنه يحمل اسمي. لأنه كذلك فعلاً.">From microcontrollers and PLC automation to deep learning, I handle the full chain: design, build, troubleshoot and document. I work rigorously under pressure, communicate clearly in English, French and Arabic, and treat every project — big or small — as if it carries my name. Because it does.</p>
+      </div>
+      <div class="card reveal">
+        <h3 data-en="Beyond Engineering" data-ar="ما وراء الهندسة">Beyond Engineering</h3>
+        <p data-en="Two years of volunteering with the Palestinian Red Crescent Society (2014 – 2016): emergency support and field coordination under high-pressure, critical situations." data-ar="سنتان من العمل التطوعي مع جمعية الهلال الأحمر الفلسطيني (2014 – 2016): دعم إسعافي وتنسيق ميداني في مواقف حرجة تحت ضغط عالٍ.">Two years of volunteering with the Palestinian Red Crescent Society (2014 – 2016): emergency support and field coordination under high-pressure, critical situations.</p>
+        <div class="chips">
+          <span class="chip" data-en="Teamwork" data-ar="عمل جماعي">Teamwork</span>
+          <span class="chip" data-en="Calm under pressure" data-ar="هدوء تحت الضغط">Calm under pressure</span>
+          <span class="chip" data-en="Documentation" data-ar="توثيق دقيق">Documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-label reveal" data-en="Toolbox" data-ar="عدة العمل">Toolbox</div>
+    <h2 class="sec-title reveal" data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="card skill-card reveal">
+        <h3 data-en="Programming Languages" data-ar="لغات البرمجة">Programming Languages</h3>
+        <ul>
+          <li>C · C++ · Python</li>
+          <li>Java · JavaScript · SQL</li>
+          <li data-en="Assembly / Assembler" data-ar="لغة التجميع Assembly">Assembly / Assembler</li>
+        </ul>
+      </div>
+      <div class="card skill-card reveal">
+        <h3 data-en="Embedded Systems" data-ar="الأنظمة المدمجة">Embedded Systems</h3>
+        <ul>
+          <li data-en="Microcontroller & microprocessor programming" data-ar="برمجة المتحكمات الدقيقة والمعالجات المصغرة">Microcontroller &amp; microprocessor programming</li>
+          <li data-en="Firmware development & circuit design" data-ar="تطوير البرمجيات المدمجة وتصميم الدوائر">Firmware development &amp; circuit design</li>
+          <li data-en="Wired & wireless communication networks" data-ar="شبكات الاتصال السلكية واللاسلكية">Wired &amp; wireless communication networks</li>
+          <li data-en="Electronics troubleshooting" data-ar="كشف وإصلاح الأعطال الإلكترونية">Electronics troubleshooting</li>
+        </ul>
+      </div>
+      <div class="card skill-card reveal">
+        <h3 data-en="Industrial Automation" data-ar="الأتمتة الصناعية">Industrial Automation</h3>
+        <ul>
+          <li data-en="PLC programming (Ladder Logic)" data-ar="برمجة المتحكمات المنطقية PLC (لغة Ladder)">PLC programming (Ladder Logic)</li>
+          <li data-en="GRAFCET design & simulation" data-ar="تصميم ومحاكاة GRAFCET">GRAFCET design &amp; simulation</li>
+        </ul>
+      </div>
+      <div class="card skill-card reveal">
+        <h3 data-en="AI & Data" data-ar="الذكاء الاصطناعي والبيانات">AI &amp; Data</h3>
+        <ul>
+          <li data-en="Deep Learning & Computer Vision (NVIDIA certified)" data-ar="التعلم العميق والرؤية الحاسوبية (معتمد من NVIDIA)">Deep Learning &amp; Computer Vision (NVIDIA certified)</li>
+          <li data-en="Data management · Statistics & analysis" data-ar="إدارة البيانات · الإحصاء والتحليل">Data management · Statistics &amp; analysis</li>
+        </ul>
+      </div>
+      <div class="card skill-card reveal">
+        <h3 data-en="Tools & IT" data-ar="الأدوات وتقنية المعلومات">Tools &amp; IT</h3>
+        <ul>
+          <li>Windows · Linux · macOS</li>
+          <li data-en="MS Office · Visual Basic · Cloud-based solutions" data-ar="حزمة Office · Visual Basic · حلول سحابية">MS Office · Visual Basic · Cloud-based solutions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-label reveal" data-en="Selected Work" data-ar="من أعمالي">Selected Work</div>
+    <h2 class="sec-title reveal" data-en="Projects & Experience" data-ar="المشاريع والخبرات">Projects &amp; Experience</h2>
+
+    <!-- Featured -->
+    <div class="featured reveal">
+      <div class="f-visual">
+        <div class="tag" data-en="★ Featured — Master's Thesis · 2022–2023" data-ar="★ مشروع مميز — مذكرة الماجستير · 2022–2023">★ Featured — Master's Thesis · 2022–2023</div>
+        <h3 data-en="Real-Time Facial Expression Recognition System" data-ar="نظام التعرف على تعابير الوجه في الزمن الحقيقي">Real-Time Facial Expression Recognition System</h3>
+        <p data-en="Deep-learning system in Python that reads human emotions from faces in real time." data-ar="نظام تعلم عميق بلغة بايثون يقرأ المشاعر البشرية من الوجوه في الزمن الحقيقي.">Deep-learning system in Python that reads human emotions from faces in real time.</p>
+        <svg class="f-wave" viewBox="0 0 200 40" width="100%" height="40" preserveAspectRatio="none"><path d="M0,20 Q10,5 20,20 T40,20 T60,20 T80,20 T100,20 T120,20 T140,20 T160,20 T180,20 T200,20" fill="none" stroke="#2A9D8F" stroke-width="2" opacity=".8"/></svg>
+      </div>
+      <div class="f-body">
+        <ul style="list-style:none">
+          <li style="margin-bottom:10px;color:var(--muted)" data-en="▸ Designed, trained and validated a deep-learning model achieving excellent accuracy in real-time emotion recognition." data-ar="▸ تصميم وتدريب وتقييم نموذج تعلم عميق حقق دقة ممتازة في التعرف على المشاعر لحظياً.">▸ Designed, trained and validated a deep-learning model achieving excellent accuracy in real-time emotion recognition.</li>
+          <li style="margin-bottom:10px;color:var(--muted)" data-en="▸ Deployed and evaluated the system in real-world scenarios, beyond the lab." data-ar="▸ نشر النظام وتقييمه في سيناريوهات واقعية خارج المخبر.">▸ Deployed and evaluated the system in real-world scenarios, beyond the lab.</li>
+          <li style="color:var(--muted)" data-en="▸ Delivered with full technical documentation and defence materials." data-ar="▸ تسليم المشروع بتوثيق تقني كامل وملفات المناقشة.">▸ Delivered with full technical documentation and defence materials.</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">Deep Learning</span>
+          <span class="chip" data-en="Computer Vision" data-ar="رؤية حاسوبية">Computer Vision</span>
+          <span class="chip">OpenCV</span><span class="chip" data-en="Real-Time" data-ar="زمن حقيقي">Real-Time</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-grid">
+      <div class="card proj-card reveal">
+        <div class="proj-date">2021 · SONELGAZ</div>
+        <h3 data-en="Industrial Training — Electrical Networks" data-ar="تدريب صناعي — الشبكات الكهربائية">Industrial Training — Electrical Networks</h3>
+        <p data-en="Two months of intensive field training at the national electricity & gas company: protecting and connecting electrical networks to the highest safety standards, across residential and high-voltage installations." data-ar="شهران من التدريب الميداني المكثف في الشركة الوطنية للكهرباء والغاز: حماية وربط الشبكات الكهربائية وفق أعلى معايير السلامة، في التركيبات السكنية والعالية الجهد.">Two months of intensive field training at the national electricity &amp; gas company: protecting and connecting electrical networks to the highest safety standards, across residential and high-voltage installations.</p>
+        <div class="chips"><span class="chip" data-en="Electrical Networks" data-ar="شبكات كهربائية">Electrical Networks</span><span class="chip" data-en="Safety" data-ar="سلامة">Safety</span><span class="chip" data-en="High Voltage" data-ar="جهد عالٍ">High Voltage</span></div>
+      </div>
+      <div class="card proj-card reveal">
+        <div class="proj-date" data-en="2019 · RESEARCH" data-ar="2019 · بحث">2019 · RESEARCH</div>
+        <h3 data-en="Algae Cultivation for Clean Energy" data-ar="استزراع الطحالب للطاقة النظيفة">Algae Cultivation for Clean Energy</h3>
+        <p data-en="Mini-grant research project investigating algae farming as a sustainable feedstock for tomorrow's clean-energy production." data-ar="مشروع بحثي بمنحة مصغرة يدرس استزراع الطحالب كمادة أولية مستدامة لإنتاج طاقة الغد النظيفة.">Mini-grant research project investigating algae farming as a sustainable feedstock for tomorrow's clean-energy production.</p>
+        <div class="chips"><span class="chip" data-en="Research" data-ar="بحث علمي">Research</span><span class="chip" data-en="Clean Energy" data-ar="طاقة نظيفة">Clean Energy</span><span class="chip" data-en="Sustainability" data-ar="استدامة">Sustainability</span></div>
+      </div>
+      <div class="card proj-card reveal">
+        <div class="proj-date" data-en="2014 · COMMUNITY" data-ar="2014 · مجتمعي">2014 · COMMUNITY</div>
+        <h3 data-en="'Talking Container' — Recycling Awareness" data-ar="«الحاوية الناطقة» — الوعي بالتدوير">'Talking Container' — Recycling Awareness</h3>
+        <p data-en="An interactive 'talking' waste container promoting environmental awareness and recycling in the community." data-ar="حاوية نفايات تفاعلية «ناطقة» لتعزيز الوعي البيئي وإعادة التدوير في المجتمع.">An interactive 'talking' waste container promoting environmental awareness and recycling in the community.</p>
+        <div class="chips"><span class="chip" data-en="Electronics" data-ar="إلكترونيك">Electronics</span><span class="chip" data-en="Environment" data-ar="بيئة">Environment</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="container">
+    <div class="sec-label reveal" data-en="For Hire" data-ar="للتوظيف">For Hire</div>
+    <h2 class="sec-title reveal" data-en="What I Can Do For You" data-ar="ماذا أقدم لك">What I Can Do For You</h2>
+    <div class="serv-grid">
+      <div class="card serv-card reveal">
+        <div class="serv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></div>
+        <h3 data-en="Firmware Development" data-ar="تطوير البرمجيات المدمجة">Firmware Development</h3>
+        <p data-en="Professional firmware for Arduino, ESP32, PIC and STM32 in C, C++ and MicroPython: sensors, displays, wired & wireless communication (UART, I2C, SPI, WiFi, BLE) — tested and documented." data-ar="برمجيات مدمجة احترافية لأردوينو وESP32 وPIC وSTM32 بلغات C وC++ وMicroPython: مستشعرات، شاشات، اتصالات سلكية ولاسلكية — مختبَرة وموثَّقة.">Professional firmware for Arduino, ESP32, PIC and STM32 in C, C++ and MicroPython: sensors, displays, wired &amp; wireless communication (UART, I2C, SPI, WiFi, BLE) — tested and documented.</p>
+      </div>
+      <div class="card serv-card reveal">
+        <div class="serv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3 data-en="Circuit Design & Troubleshooting" data-ar="تصميم الدوائر وإصلاح الأعطال">Circuit Design &amp; Troubleshooting</h3>
+        <p data-en="Custom circuit design, schematic review, component selection and fault-finding — catching errors before you build." data-ar="تصميم دوائر مخصصة، مراجعة المخططات، اختيار المكونات واكتشاف الأعطال — لتلافي الأخطاء قبل التنفيذ.">Custom circuit design, schematic review, component selection and fault-finding — catching errors before you build.</p>
+      </div>
+      <div class="card serv-card reveal">
+        <div class="serv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3 data-en="Industrial Automation" data-ar="الأتمتة الصناعية">Industrial Automation</h3>
+        <p data-en="PLC programming with Ladder Logic plus GRAFCET design & simulation for reliable factory and process automation." data-ar="برمجة المتحكمات المنطقية بلغة Ladder مع تصميم ومحاكاة GRAFCET لأتمتة مصانع وعمليات موثوقة.">PLC programming with Ladder Logic plus GRAFCET design &amp; simulation for reliable factory and process automation.</p>
+      </div>
+      <div class="card serv-card reveal">
+        <div class="serv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3 data-en="AI & Computer Vision" data-ar="الذكاء الاصطناعي والرؤية الحاسوبية">AI &amp; Computer Vision</h3>
+        <p data-en="NVIDIA-certified deep learning in Python: face detection and emotion recognition, object detection, image classification and data analysis." data-ar="تعلم عميق معتمد من NVIDIA بلغة بايثون: كشف الوجوه والتعرف على المشاعر، كشف الأجسام، تصنيف الصور وتحليل البيانات.">NVIDIA-certified deep learning in Python: face detection and emotion recognition, object detection, image classification and data analysis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="container">
+    <div class="sec-label reveal" data-en="Background" data-ar="المسار">Background</div>
+    <h2 class="sec-title reveal" data-en="Education & Certifications" data-ar="التعليم والشهادات">Education &amp; Certifications</h2>
+    <div class="edu-grid">
+      <div class="card reveal">
+        <h3 data-en="Education" data-ar="التعليم">Education</h3>
+        <div class="edu-item"><div><b data-en="M.Sc. Electronics — Embedded Systems" data-ar="ماجستير إلكترونيك — أنظمة مدمجة">M.Sc. Electronics — Embedded Systems</b><small data-en="Master's thesis in deep learning & artificial vision" data-ar="مذكرة في التعلم العميق والرؤية الاصطناعية">Master's thesis in deep learning &amp; artificial vision</small></div><span class="yr">2021–2023</span></div>
+        <div class="edu-item"><div><b data-en="B.Sc. Electronics" data-ar="ليسانس إلكترونيك">B.Sc. Electronics</b></div><span class="yr">2018–2021</span></div>
+        <div class="edu-item"><div><b data-en="Continuing Professional Development" data-ar="تطوير مهني مستمر">Continuing Professional Development</b><small data-en="Web & software development · factory automation with AI/ML" data-ar="تطوير الويب والبرمجيات · أتمتة المصانع بالذكاء الاصطناعي">Web &amp; software development · factory automation with AI/ML</small></div><span class="yr" data-en="2023–now" data-ar="2023–الآن">2023–now</span></div>
+      </div>
+      <div class="card reveal">
+        <h3 data-en="Certifications" data-ar="الشهادات">Certifications</h3>
+        <div class="edu-item"><div><b data-en="Artificial Vision (Python) & Deep Learning" data-ar="الرؤية الاصطناعية (بايثون) والتعلم العميق">Artificial Vision (Python) &amp; Deep Learning</b><small>NVIDIA</small></div><span class="yr">2022</span></div>
+        <div class="edu-item"><div><b data-en="Introduction to Business Management" data-ar="مدخل إلى إدارة الأعمال">Introduction to Business Management</b><small>King's College London (Online)</small></div><span class="yr">2020</span></div>
+        <div class="edu-item"><div><b data-en="Programming Course: Java, C, C++" data-ar="دورة برمجة: Java وC وC++">Programming Course: Java, C, C++</b></div><span class="yr">2017</span></div>
+        <div class="edu-item"><div><b data-en="First Aid & Diabetes Care" data-ar="الإسعافات الأولية ورعاية مرضى السكري">First Aid &amp; Diabetes Care</b><small data-en="Red Crescent / Red Cross" data-ar="الهلال الأحمر / الصليب الأحمر">Red Crescent / Red Cross</small></div><span class="yr">2012</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-label reveal" data-en="Let's Talk" data-ar="لنتحدث">Let's Talk</div>
+    <h2 class="sec-title reveal" data-en="Let's Build Something Intelligent" data-ar="لنبنِ شيئاً ذكياً">Let's Build Something Intelligent</h2>
+    <div class="card reveal">
+      <p style="color:var(--muted);max-width:640px" data-en="Have a project in mind? A prototype to debug? A thesis to salvage? Send me the details — I reply fast, in English, French or Arabic." data-ar="لديك مشروع في ذهنك؟ نموذج أولي يحتاج إصلاحاً؟ أرسل لي التفاصيل — أرد بسرعة، بالإنجليزية أو الفرنسية أو العربية.">Have a project in mind? A prototype to debug? A thesis to salvage? Send me the details — I reply fast, in English, French or Arabic.</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+          <div><b data-en="Email" data-ar="البريد الإلكتروني">Email</b><a href="mailto:ibrahim.s.s.safi@gmail.com"><span>ibrahim.s.s.safi@gmail.com</span></a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><b data-en="Phone / WhatsApp" data-ar="الهاتف / واتساب">Phone / WhatsApp</b><a href="tel:+213667000944"><span data-en="+213 667 000 944" data-ar="+213 667 000 944" dir="ltr">+213 667 000 944</span></a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><b data-en="Location" data-ar="الموقع">Location</b><span data-en="Ouargla, Algeria (GMT+1)" data-ar="ورقلة، الجزائر (GMT+1)">Ouargla, Algeria (GMT+1)</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452z"/></svg></div>
+          <div><b>LinkedIn</b><a href="https://www.linkedin.com/in/ibrahim-s-s-safi" target="_blank"><span>ibrahim-s-s-safi</span></a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+          <div><b>GitHub</b><a href="https://github.com/ibrahimsssafi-eng" target="_blank"><span>ibrahimsssafi-eng</span></a></div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <a class="btn btn-primary" href="mailto:ibrahim.s.s.safi@gmail.com"><span data-en="✉ Send Me a Message" data-ar="✉ أرسل لي رسالة">✉ Send Me a Message</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span data-en="© 2026 Ibrahim Sohil Sady Safi — Embedded Systems & AI · Ouargla, Algeria" data-ar="© 2026 إبراهيم سهيل سعدي صافي — أنظمة مدمجة وذكاء اصطناعي · ورقلة، الجزائر">© 2026 Ibrahim Sohil Sady Safi — Embedded Systems &amp; AI · Ouargla, Algeria</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const body = document.body;
+
+  // ---------- Theme ----------
+  const themeBtn = document.getElementById('themeBtn');
+  const moon = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+  const sun  = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  function setTheme(t){
+    document.documentElement.dataset.theme = t;
+    document.getElementById('themeIcon').innerHTML = (t==='dark') ? sun : moon;
+    localStorage.setItem('theme', t);
+  }
+  themeBtn.addEventListener('click', ()=> setTheme(document.documentElement.dataset.theme==='dark' ? 'light':'dark'));
+  setTheme(localStorage.getItem('theme') || 'light');
+
+  // ---------- Language ----------
+  const langBtn = document.getElementById('langBtn');
+  function setLang(l){
+    root.lang = l; root.dir = (l==='ar') ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      el.innerHTML = (l==='ar') ? el.dataset.ar : el.dataset.en;
+    });
+    langBtn.textContent = (l==='ar') ? 'EN' : 'عربي';
+    document.title = (l==='ar')
+      ? 'إبراهيم صافي — مهندس أنظمة مدمجة وذكاء اصطناعي'
+      : 'Ibrahim Safi — Embedded Systems & AI Engineer';
+    localStorage.setItem('lang', l);
+  }
+  langBtn.addEventListener('click', ()=> setLang(root.lang==='ar' ? 'en':'ar'));
+  setLang(localStorage.getItem('lang') || 'en');
+
+  // ---------- Mobile menu ----------
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> navLinks.classList.remove('open')));
+
+  // ---------- Reveal on scroll ----------
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+})();
+</script>
+</body>
+</html>
